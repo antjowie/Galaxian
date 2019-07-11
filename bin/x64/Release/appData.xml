@@ -1,9 +1,0 @@
-<?xml version="1.0" ?>
-
-<appData>
-  <title>Galaxian</title>
-  <windows>
-    <window title ="Galaxian" width="1280" height="720" xPos="60" yPos="60"/>
-  </windows>
-  
-</appData>
