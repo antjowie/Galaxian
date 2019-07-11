@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{CD5E6E03-6850-47D6-B7AF-588B40C04F67}</ProjectGuid>
+    <RootNamespace>Galaxian</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>..\..\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\..\bin\intermediate\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>..\..\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\..\bin\intermediate\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)../../include;$(SolutionDir)../../deps/tinyxml;$(SolutionDir)../../deps/soil/src;$(SolutionDir)../../deps/glfw-3.2.1/include;$(SolutionDir)../../deps/glew-2.0.0/include;$(SolutionDir)../../deps/glm-0.9.8.5;$(SolutionDir)../Galaxian/source;$(SolutionDir)../Galaxian/include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLM_FORCE_SWIZZLE;GLM_FORCE_RADIANS;GLM_FORCE_PURE;GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)../../lib\vs2017\$(Platform)\$(Configuration);$(OutDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>NHTV Basic Framework.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>../../scripts\copyResourcesToBuildDirectory.bat "$(ProjectDir)$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)../../include;$(SolutionDir)../../deps/tinyxml;$(SolutionDir)../../deps/soil/src;$(SolutionDir)../../deps/glfw-3.2.1/include;$(SolutionDir)../../deps/glew-2.0.0/include;$(SolutionDir)../../deps/glm-0.9.8.5;$(SolutionDir)../Galaxian/source;$(SolutionDir)../Galaxian/include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLM_FORCE_SWIZZLE;GLM_FORCE_RADIANS;GLM_FORCE_PURE;GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)../../lib\vs2015\$(Platform)\$(Configuration);$(SolutionDir)../../deps/soil/lib/vs2015/$(Platform)/$(Configuration);$(SolutionDir)../../deps/glew-1.12.0/lib-vc2015/$(Platform)/$(Configuration);$(SolutionDir)../../deps/glfw-3.1.1/lib-vc2015/$(Platform)/$(Configuration);$(OutDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>NHTV Basic Framework.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>../../scripts\copyResourcesToBuildDirectory.bat "$(ProjectDir)$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Animation.h" />
+    <ClInclude Include="include\CollisionManager.h" />
+    <ClInclude Include="include\Curve.h" />
+    <ClInclude Include="include\EventManager.h" />
+    <ClInclude Include="include\Game.h" />
+    <ClInclude Include="include\groups\GalaxianGroup.h" />
+    <ClInclude Include="include\groups\Group.h" />
+    <ClInclude Include="include\ObjectManager.h" />
+    <ClInclude Include="include\objects\Explosion.h" />
+    <ClInclude Include="include\objects\GalaxianBlue.h" />
+    <ClInclude Include="include\objects\Bullet.h" />
+    <ClInclude Include="include\objects\Galaxian.h" />
+    <ClInclude Include="include\objects\GalaxianState.h" />
+    <ClInclude Include="include\objects\Box.h" />
+    <ClInclude Include="include\objects\Object.h" />
+    <ClInclude Include="include\objects\GalaxianPurple.h" />
+    <ClInclude Include="include\objects\Ship.h" />
+    <ClInclude Include="include\objects\GalaxianRed.h" />
+    <ClInclude Include="include\objects\GalaxianYellow.h" />
+    <ClInclude Include="include\ScoreHandler.h" />
+    <ClInclude Include="include\Starfield.h" />
+    <ClInclude Include="include\Life.h" />
+    <ClInclude Include="include\Text.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\ScoreHandler.cpp" />
+    <ClCompile Include="source\Life.cpp" />
+    <ClCompile Include="source\objects\Box.cpp" />
+    <ClCompile Include="source\Curve.cpp" />
+    <ClCompile Include="source\objects\Explosion.cpp" />
+    <ClCompile Include="source\objects\GalaxianPurple.cpp" />
+    <ClCompile Include="source\objects\GalaxianRed.cpp" />
+    <ClCompile Include="source\Animation.cpp" />
+    <ClCompile Include="source\CollisionManager.cpp" />
+    <ClCompile Include="source\EventManager.cpp" />
+    <ClCompile Include="source\Game.cpp" />
+    <ClCompile Include="source\groups\GalaxianGroup.cpp" />
+    <ClCompile Include="source\groups\Group.cpp" />
+    <ClCompile Include="source\ObjectManager.cpp" />
+    <ClCompile Include="source\objects\GalaxianBlue.cpp" />
+    <ClCompile Include="source\objects\Bullet.cpp" />
+    <ClCompile Include="source\objects\Galaxian.cpp" />
+    <ClCompile Include="source\objects\GalaxianState.cpp" />
+    <ClCompile Include="source\objects\Object.cpp" />
+    <ClCompile Include="source\objects\Ship.cpp" />
+    <ClCompile Include="source\objects\GalaxianYellow.cpp" />
+    <ClCompile Include="source\Starfield.cpp" />
+    <ClCompile Include="source\Text.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
